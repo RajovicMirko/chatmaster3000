@@ -1,0 +1,25 @@
+* {
+  font-family: Arial, Verdana, Geneva, Tahoma, "Open Sans", sans-serif;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-decoration: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  //overflow: hidden;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-image: url($noise);
+  background-color: change-color($color: $primary, $alpha: 0.3);
+}
