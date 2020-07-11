@@ -31,13 +31,13 @@ export default {
           label: "",
           model: true,
           value: "",
-          validate: function() {
-            const errors = [];
-
-            if (this.value.length < 5) errors.push("Min 5 characters");
-            if (this.value.length > 20) errors.push("Max 20 characters");
-
-            return errors;
+          validate: {
+            required: {
+              message: "Email is requiered",
+            },
+            email: {
+              message: "Must be a valid email",
+            },
           },
         },
         {
@@ -47,12 +47,25 @@ export default {
           placeholder: "Password",
           model: true,
           value: "",
+          validate: {
+            required: {
+              message: "Password is requiered",
+            },
+            min: {
+              value: 5,
+              message: "Password must be greater then 5 chars",
+            },
+            max: {
+              value: 20,
+              message: "Password must have less then 20 chars",
+            },
+          },
         },
         {
           component: "button",
           type: "submit",
           label: "Login",
-          btnStyle: "primary",
+          btnStyle: "primary outlined",
         },
       ],
     };

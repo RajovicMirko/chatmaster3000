@@ -24,13 +24,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$box-shadow-hover: 2px 2px 5px 0
+  change-color(
+    $color: $black,
+    $alpha: 0.3,
+  );
+
 button {
   padding: 0.5rem;
   border-radius: 2rem;
   font-size: 1.2rem;
 
   &:hover {
-    box-shadow: 2px 2px 5px 0 change-color($color: $black, $alpha: 0.3);
+    box-shadow: $box-shadow-hover;
+  }
+
+  &:focus {
+    box-shadow: $box-shadow-hover;
   }
 
   &:active {
@@ -48,10 +58,11 @@ button {
       background-color: change-color($color: $primary, $alpha: 0.1);
       color: $primary;
 
-      &:hover {
+      &:hover,
+      &:focus {
         color: $white;
         background-color: change-color($color: $primary, $alpha: 1);
-        box-shadow: 2px 2px 5px 0 change-color($color: $black, $alpha: 0.3);
+        box-shadow: $box-shadow-hover;
       }
 
       &:active {
@@ -69,12 +80,13 @@ button {
       @extend .warning;
       border: 1px solid $warning;
       background-color: change-color($color: $warning, $alpha: 0.1);
-      color: $primary;
+      color: $gray;
 
-      &:hover {
+      &:hover,
+      &:focus {
         color: $white;
         background-color: change-color($color: $warning, $alpha: 1);
-        box-shadow: 2px 2px 5px 0 change-color($color: $black, $alpha: 0.3);
+        box-shadow: $box-shadow-hover;
       }
 
       &:active {

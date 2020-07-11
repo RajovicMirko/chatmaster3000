@@ -1,20 +1,21 @@
 <template>
   <form ref="frm" class="custom-form" @submit="handleSubmit">
     <component :is="$getComponent('title')" v-if="title">{{ title }}</component>
+
     <component
-      v-for="(cmp, i) in formComponents"
+      v-for="(cmp, i) in form.items"
       :key="i"
       :is="$getComponent(cmp.component)"
       v-bind="cmp"
       :value.sync="cmp.value"
-      :errors="errors"
+      :formItem="cmp"
     />
   </form>
 </template>
 
 <script>
 export default {
-  name: "LoginForm",
+  name: "CustomForm",
 
   props: {
     title: {
@@ -22,7 +23,7 @@ export default {
     },
     api: {
       type: String,
-      required: true,
+      required: false,
     },
     formComponents: {
       type: Array,
@@ -32,32 +33,25 @@ export default {
 
   data() {
     return {
-      errors: {},
+      form: {},
     };
+  },
+
+  mounted() {
+    this.form = this.$newForm(this.formComponents);
+    console.log(this.form);
   },
 
   methods: {
     submit() {
-      const payload = {};
-
-      this.formComponents
-        .filter((cmp) => cmp.model)
-        .map((cmp) => (payload[cmp.name] = cmp.value));
-
-      this.$emit("formSubmite", { api: this.api, payload });
+      const payload = this.form.resultModel;
+      this.$emit("formSubmite", { api: this.api, formData: payload });
     },
 
     handleSubmit(e) {
       e.preventDefault();
-      this.submit();
-      // this.formComponents.map((cmp) => {
-      //   if (cmp.validate) {
-      //     const result = cmp.validate();
-      //     if (result) this.errors[cmp.name] = result;
-      //   }
-      // });
-
-      // console.log(this.errors);
+      this.form.validate();
+      if (this.form.valid) this.submit();
     },
   },
 };

@@ -31,6 +31,15 @@ export default {
           label: "",
           model: true,
           value: "",
+          validate: {
+            required: {
+              message: "Full name is requiered",
+            },
+            min: {
+              value: 8,
+              message: "Full name must be greater then 8 chars",
+            },
+          },
         },
         {
           component: "input",
@@ -40,6 +49,14 @@ export default {
           label: "",
           model: true,
           value: "",
+          validate: {
+            required: {
+              message: "Email is requiered",
+            },
+            email: {
+              message: "Must be a valid email",
+            },
+          },
         },
         {
           component: "input",
@@ -48,6 +65,19 @@ export default {
           placeholder: "Password",
           model: true,
           value: "",
+          validate: {
+            required: {
+              message: "Password is requiered",
+            },
+            min: {
+              value: 5,
+              message: "Password must be greater then 5 chars",
+            },
+            max: {
+              value: 20,
+              message: "Password must have less then 20 chars",
+            },
+          },
         },
         {
           component: "input",
@@ -56,6 +86,22 @@ export default {
           placeholder: "Repeat password",
           model: true,
           value: "",
+          validate: {
+            required: {
+              message: "Repeated password is requiered",
+            },
+            min: {
+              value: 5,
+              message: "Repeated password must be greater then 5 chars",
+            },
+            max: {
+              value: 20,
+              message: "Repeated password must have less then 20 chars",
+            },
+            repeatPassword: {
+              message: "Repeated password is not same as Password",
+            },
+          },
         },
         {
           component: "button",
