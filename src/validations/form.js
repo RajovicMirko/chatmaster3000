@@ -61,7 +61,6 @@ class Component {
     placeholder,
     label,
     model,
-    value,
     validate,
     btnStyle,
   }) {
@@ -71,7 +70,7 @@ class Component {
     this.placeholder = placeholder;
     this.label = label;
     this.model = model;
-    this.value = value;
+    this.value = "";
     this.validate = validate;
     this.btnStyle = btnStyle;
     this.errors = [];

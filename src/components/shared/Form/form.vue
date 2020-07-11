@@ -39,7 +39,6 @@ export default {
 
   mounted() {
     this.form = this.$newForm(this.formComponents);
-    console.log(this.form);
   },
 
   methods: {
