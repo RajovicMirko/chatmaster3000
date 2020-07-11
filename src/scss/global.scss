@@ -12,6 +12,7 @@
   padding: 0;
   border: none;
   outline: none;
+  background: none;
   //overflow: hidden;
 }
 
@@ -22,4 +23,9 @@ body {
   height: 100vh;
   background-image: url($noise);
   background-color: change-color($color: $primary, $alpha: 0.3);
+}
+
+.center-router-view {
+  display: grid;
+  place-items: center;
 }

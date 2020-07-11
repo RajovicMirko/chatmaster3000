@@ -6,6 +6,7 @@ module.exports = {
       alias: {
         "@a": path.resolve(__dirname, "src/assets"),
         "@c": path.resolve(__dirname, "src/components"),
+        "@m": path.resolve(__dirname, "src/mixins"),
         "@r": path.resolve(__dirname, "src/router"),
         "@sc": path.resolve(__dirname, "src/scss"),
         "@st": path.resolve(__dirname, "src/store"),
