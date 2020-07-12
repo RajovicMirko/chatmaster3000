@@ -16,11 +16,15 @@ import dataMixin from "@m/login/form";
 
 export default {
   name: "Login",
-  mixins: [formMixin, dataMixin],
+  mixins: [formMixin, dataMixin]
 };
 </script>
 
 <style lang="scss">
 .login {
+  .custom-form {
+    width: 40%;
+    min-width: 300px;
+  }
 }
 </style>
