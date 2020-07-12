@@ -16,8 +16,15 @@ import dataMixin from "@m/register/form";
 
 export default {
   name: "Register",
-  mixins: [formMixin, dataMixin],
+  mixins: [formMixin, dataMixin]
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.register {
+  .custom-form {
+    width: 40%;
+    min-width: 300px;
+  }
+}
+</style>

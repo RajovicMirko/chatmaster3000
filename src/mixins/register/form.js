@@ -90,7 +90,7 @@ export default {
           component: "button",
           type: "submit",
           label: "Register",
-          btnStyle: "warning",
+          btnStyle: "primary",
         },
       ],
     };
